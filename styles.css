@@ -7,25 +7,84 @@
 
 html, body {
     height: 100%; /* Ensure the body takes up full height of the viewport */
+    overflow: hidden; /* Prevent scrolling on small screens */
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
     background-color: black; /* Set the background to black */
     font-family: Arial, sans-serif;
+    position: relative; /* Enable z-index for stacking */
 }
 
+/* Logo container settings */
 .logo-container {
     width: 30vw; /* Set a proportional width relative to the viewport */
     height: auto; /* Maintain aspect ratio */
     max-width: 200px; /* Cap the size on large screens */
     max-height: 200px; /* Ensure it fits vertically */
+    position: relative; /* Set relative positioning */
+    z-index: 1; /* Set the z-index for the logo container */
+    animation: scaleAnimation 3s ease-in-out infinite; /* Add animation */
 }
 
+/* Make the SVG responsive within the container */
 svg {
-    width: 100%; /* Make the SVG responsive within the container */
+    width: 100%; /* Ensure the SVG fills the container width */
     height: auto; /* Maintain aspect ratio */
+    stroke: white; /* Set the stroke color */
+    stroke-width: 2; /* Set stroke width */
+    fill: none; /* Remove any fill so the stroke is visible */
+    stroke-dasharray: 1000; /* Set a high dasharray value for the stroke length */
+    stroke-dashoffset: 1000; /* Hide the stroke initially */
+    animation: drawStroke 4s ease forwards, scaleAnimation 3s ease-in-out infinite; /* Apply both animations */
+    position: relative; /* Set position relative to apply z-index */
+    z-index: 2; /* Set a higher z-index for the SVG */
+}
+
+/* Keyframes for stroke drawing */
+@keyframes drawStroke {
+    0% {
+        stroke-dashoffset: 1000; /* Start with the stroke hidden */
+    }
+    100% {
+        stroke-dashoffset: 0; /* End with the stroke fully visible */
+    }
+}
+
+/* Keyframes for scaling animation */
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Scale up slightly */
+    }
+    100% {
+        transform: scale(1); /* Scale back down */
+    }
+}
+
+/* Media queries for better responsiveness */
+@media screen and (max-width: 768px) {
+    body {
+        overflow: hidden; /* Prevent scrolling */
+    }
+
+    .logo-container {
+        width: 50vw; /* Increase logo size for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        overflow: hidden; /* Prevent scrolling on very small screens */
+    }
+
+    .logo-container {
+        width: 60vw; /* Make the logo even larger on very small screens */
+    }
 }
