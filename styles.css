@@ -1,0 +1,31 @@
+/* General reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure the body takes up full height of the viewport */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black; /* Set the background to black */
+    font-family: Arial, sans-serif;
+}
+
+.logo-container {
+    width: 30vw; /* Set a proportional width relative to the viewport */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 200px; /* Cap the size on large screens */
+    max-height: 200px; /* Ensure it fits vertically */
+}
+
+svg {
+    width: 100%; /* Make the SVG responsive within the container */
+    height: auto; /* Maintain aspect ratio */
+}
