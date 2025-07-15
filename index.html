@@ -6,34 +6,22 @@
     <link rel="icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="description" content="PT AITI GLOBAL NEXUS menyediakan konsultasi dan pelatihan AI untuk UMKM, profesional, dan pemerintah. Akselerasi bisnis Anda dengan program AI kami.">
+    
     <title>PT AITI GLOBAL NEXUS - Konsultasi & Pelatihan AI</title>
     
-    <!-- Google Fonts Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Internal CSS for the entire one-page site -->
     <style>
-        /* --- General Settings & Smooth Scroll --- */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px; /* Offset for sticky header */
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            color: #333;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        /* General Settings & Smooth Scroll */
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body { font-family: 'Roboto', sans-serif; background-color: #f4f4f9; margin: 0; color: #333; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        /* --- Header & Navigation --- */
+        /* Header & Navigation */
         .main-header {
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -44,11 +32,20 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            flex-wrap: wrap; /* Allow wrapping for mobile */
+            gap: 10px; /* Add gap for when it wraps */
+        }
+        .main-header .logo {
+            flex-shrink: 0; /* Prevents logo from shrinking */
         }
         .main-header .logo svg {
             width: 50px;
             height: auto;
             fill: #D32F2F;
+        }
+        .main-nav {
+            flex-grow: 1; /* Allows nav to take available space */
+            text-align: right; /* Aligns nav to the right on desktop */
         }
         .main-nav a {
             font-family: 'Montserrat', sans-serif;
@@ -58,153 +55,63 @@
             font-weight: 700;
             transition: color 0.3s ease;
         }
-        .main-nav a:hover {
-            color: #D32F2F;
+        .main-nav a:hover { color: #D32F2F; }
+
+        /* On very small screens, center the nav links */
+        @media (max-width: 420px) {
+            .main-header {
+                justify-content: center;
+            }
+            .main-nav {
+                text-align: center;
+                width: 100%;
+            }
+            .main-nav a {
+                margin: 0 10px;
+            }
         }
 
-        /* --- Hero Section (#home) --- */
-        #home {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #f4f4f9;
-            padding-top: 80px; /* avoid content hiding behind header */
-        }
-        #home .logo-container svg {
-            width: 150px;
-            height: auto;
-            fill: #D32F2F;
-        }
-        #home .logo-container h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-top: 20px;
-            letter-spacing: 1px;
-        }
+        /* Hero Section (#home) */
+        #home { min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background-color: #f4f4f9; padding-top: 80px; }
+        #home .logo-container svg { width: 150px; height: auto; fill: #D32F2F; }
+        #home .logo-container h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5em; font-weight: 700; margin-top: 20px; letter-spacing: 1px; }
 
-        /* --- Services Section (#layanan) --- */
-        #layanan {
-            padding: 60px 0;
-        }
-        .page-title {
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .page-subtitle {
-            text-align: center;
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 60px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .pillar-section {
-            margin-bottom: 60px;
-        }
-        
-        /* --- THE ALIGNMENT FIX --- */
-        .pillar-header {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* This centers the icon and text inside the flex container */
-            gap: 15px;
-            margin: 0 auto 30px auto; /* Auto margin for horizontal centering */
-            border-bottom: 2px solid #D32F2F;
-            padding-bottom: 10px;
-            width: fit-content; /* Makes the container only as wide as its content */
-        }
-        .pillar-icon {
-            width: 40px;
-            height: 40px;
-            fill: #D32F2F;
-            flex-shrink: 0; /* Prevents icon from shrinking */
-        }
+        /* Services Section (#layanan) */
+        #layanan { padding: 60px 0; }
+        .page-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2.5em; margin-bottom: 10px; }
+        .page-subtitle { text-align: center; font-size: 1.1em; color: #666; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .pillar-section { margin-bottom: 60px; }
+        .pillar-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 0 auto 30px auto; border-bottom: 2px solid #D32F2F; padding-bottom: 10px; width: fit-content; max-width: 100%; }
+        .pillar-icon { width: 40px; height: 40px; fill: #D32F2F; flex-shrink: 0; }
         .pillar-header h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2em;
+            font-size: 1.8em;
             margin: 0;
-            white-space: nowrap; /* Prevents title from breaking into two lines */
+            text-align: center;
         }
-
-        .service-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        .service-card {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            width: 340px;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-        .service-card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .service-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
+        .service-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .service-card { background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; width: 340px; max-width: 100%; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .service-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4em; margin-top: 0; margin-bottom: 15px; }
         .service-card .target { font-weight: 700; color: #D32F2F; margin-bottom: 15px; }
         .service-card .objective { margin-bottom: 15px; line-height: 1.6; flex-grow: 1; }
         .service-card .format { font-style: italic; color: #555; }
-        
-        .cta-button {
-            display: block;
-            width: auto;
-            padding: 12px 25px;
-            margin: 25px;
-            border: 2px solid #D32F2F;
-            background-color: transparent;
-            color: #D32F2F;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-            font-weight: 700;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+        .cta-button { display: block; width: auto; padding: 12px 25px; margin: 25px; border: 2px solid #D32F2F; background-color: transparent; color: #D32F2F; font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: 700; border-radius: 5px; cursor: pointer; text-align: center; text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease; }
         .cta-button:hover { background-color: #D32F2F; color: white; }
 
-        /* --- Contact Section (#kontak) --- */
-        #kontak {
-            background-color: #333;
-            color: #fff;
-            padding: 60px 0;
-            text-align: center;
-        }
+        /* Contact Section (#kontak) */
+        #kontak { background-color: #333; color: #fff; padding: 60px 0; text-align: center; }
         #kontak h2 { font-family: 'Montserrat', sans-serif; font-size: 2em; }
         #kontak p { font-size: 1.1em; line-height: 1.7; }
         #kontak a { color: #D32F2F; text-decoration: none; font-weight: 700; }
         #kontak a:hover { text-decoration: underline; }
         
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #e9e9f3;
-        }
+        /* Footer */
+        footer { text-align: center; padding: 20px; background-color: #e9e9f3; }
+        /* Scroll to Top Button CSS */
+        #scrollToTopBtn { display: none; position: fixed; bottom: 20px; right: 30px; z-index: 99; border: none; outline: none; background-color: #D32F2F; color: white; cursor: pointer; padding: 0; border-radius: 50%; width: 45px; height: 45px; font-size: 24px; line-height: 45px; text-align: center; text-decoration: none; transition: background-color 0.3s, opacity 0.4s; }
+        #scrollToTopBtn:hover { background-color: #B71C1C; }
     </style>
 </head>
 <body>
@@ -249,7 +156,7 @@
                                 <p class="objective">Mampu menggunakan tools AI generatif untuk membuat konten pemasaran, merespon pelanggan, dan analisis pasar sederhana.</p>
                                 <p class="format">Format: Workshop interaktif 1 hari (Online/Offline).</p>
                             </div>
-                            <a href="https://wa.me/6281529850411" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
                         </div>
                         <div class="service-card">
                             <div class="service-card-content">
@@ -258,7 +165,7 @@
                                 <p class="objective">Mampu mengidentifikasi dan menerapkan tools AI no-code untuk efisiensi proses bisnis (rekap data, penjadwalan).</p>
                                 <p class="format">Format: Workshop 2 hari dengan studi kasus.</p>
                             </div>
-                            <a href="https://wa.me/6281529850411" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
                         </div>
                     </div>
                 </div>
@@ -277,7 +184,7 @@
                                 <p class="objective">Memberikan playbook dan use case AI spesifik per fungsi departemen untuk meningkatkan produktivitas.</p>
                                 <p class="format">Format: Seri webinar bersertifikat (4 sesi).</p>
                             </div>
-                           <a href="https://wa.me/6281529850411" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
+                           <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
                         </div>
                         <div class="service-card">
                             <div class="service-card-content">
@@ -286,7 +193,7 @@
                                 <p class="objective">Mampu menggunakan tools AI untuk membersihkan, menganalisis, dan memvisualisasikan data tanpa perlu coding mendalam.</p>
                                 <p class="format">Format: Pelatihan online intensif dengan proyek akhir.</p>
                             </div>
-                            <a href="https://wa.me/6281529850411" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
                         </div>
                     </div>
                 </div>
@@ -305,7 +212,7 @@
                                 <p class="objective">Mampu menyusun roadmap adopsi AI, memahami implikasi etis & tata kelola, serta mengukur ROI inisiatif AI.</p>
                                 <p class="format">Format: Sesi meja bundar eksklusif (setengah hari).</p>
                             </div>
-                            <a href="https://wa.me/6281529850411" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button">Pelajari Lebih Lanjut</a>
                         </div>
                     </div>
                 </div>
@@ -317,7 +224,7 @@
             <div class="container">
                 <h2>Hubungi Kami</h2>
                 <p>Siap untuk mengakselerasi bisnis Anda dengan AI?<br>Diskusikan kebutuhan Anda dengan tim kami untuk mendapatkan solusi yang tepat.</p>
-                <p>Email: <a href="mailto:info@aitiglobal.link" target="_blank" rel="noopener noreferrer">info@aitiglobal.link</a> | WhatsApp: <a href="https://wa.me/6281529850411" target="_blank" rel="noopener noreferrer">Bang AiTi</a></p>
+                <p>Email: <span id="email-link-placeholder">Memuat...</span> | WhatsApp: <span id="whatsapp-link-placeholder">Memuat...</span></p>
             </div>
         </section>
     </main>
@@ -328,5 +235,58 @@
         </div>
     </footer>
 
+    <a href="#home" id="scrollToTopBtn" title="Kembali ke atas">&#8679;</a>
+	
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obfuscated Data
+            const encodedEmail = 'aW5mb0BhaXRpZ2xvYmFsLmxpbms=';
+            const phoneParts = ['62', '815', '2985', '0411'];
+
+            // Dynamic Link Generation
+            const phoneNumber = phoneParts.join('');
+            const waUrl = 'https://wa.me/' + phoneNumber;
+            const waLink = document.createElement('a');
+            waLink.href = waUrl;
+            waLink.textContent = '+'+ phoneParts.join(' ');
+            waLink.target = '_blank';
+            waLink.rel = 'noopener noreferrer';
+            
+            const decodedEmail = atob(encodedEmail);
+            const emailLink = document.createElement('a');
+            emailLink.href = 'mailto:' + decodedEmail;
+            emailLink.textContent = decodedEmail;
+            emailLink.target = '_blank';
+            emailLink.rel = 'noopener noreferrer';
+
+            // DOM Replacement
+            const waPlaceholder = document.getElementById('whatsapp-link-placeholder');
+            const emailPlaceholder = document.getElementById('email-link-placeholder');
+
+            if (waPlaceholder) waPlaceholder.replaceWith(waLink);
+            if (emailPlaceholder) emailPlaceholder.replaceWith(emailLink);
+
+            // Update All CTA Buttons
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.href = waUrl;
+            });
+        });
+		
+        // Scroll to Top Button JavaScript
+        let scrollToTopButton = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopButton.style.display = "block";
+            } else {
+                scrollToTopButton.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
