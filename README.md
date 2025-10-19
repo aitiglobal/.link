@@ -2,8 +2,8 @@
 
 ## Jalankan di VS Code
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 Buka URL yang tampil (biasanya http://localhost:5173).
 
